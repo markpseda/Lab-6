@@ -38,7 +38,7 @@ public class PokerHub extends Hub {
 
 	protected void playerConnected(int playerID) {
 
-		if (playerID == 2) {
+		if (playerID == 5) {
 			shutdownServerSocket();
 		}
 	}
@@ -162,6 +162,15 @@ public class PokerHub extends Hub {
 				sendToAll(HubGamePlay);
 				break;
 			case Deal:
+				HubGamePlay.setDrawCnt(eDrawCount.SECOND);
+				try {
+					DealCards(HubGamePlay.getRule().getCardDraw(HubGamePlay.getDrawCnt()));
+				} catch (DeckException e) {
+					e.printStackTrace();
+					sendToAll(e);
+				}
+				System.out.println("Sending Deal back to Client");
+				sendToAll(HubGamePlay);
 
 				break;
 			}
