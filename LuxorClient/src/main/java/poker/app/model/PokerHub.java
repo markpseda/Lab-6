@@ -169,9 +169,11 @@ public class PokerHub extends Hub {
 				break;
 			case Draw:
 				int newDrawCnt = HubGamePlay.getDrawCnt().getDrawNo() + 1;
+				//Need a way to use the int value of the next draw to set draw count
 				HubGamePlay.setDrawCnt(eDrawCount.SECOND);
 				try {
 					DealCards(HubGamePlay.getRule().getCardDraw(HubGamePlay.getDrawCnt()));
+					//if this fails then then perform the scoring of the hands. 
 				} catch (DeckException e) {
 					e.printStackTrace();
 					sendToAll(e);
