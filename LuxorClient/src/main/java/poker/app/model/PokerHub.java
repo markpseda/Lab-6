@@ -167,7 +167,7 @@ public class PokerHub extends Hub {
 				System.out.println("Sending Start back to Client");
 				sendToAll(HubGamePlay);
 				break;
-			case Deal:
+			case Draw:
 				
 				HubGamePlay.setDrawCnt(eDrawCount.SECOND);
 				try {
@@ -178,6 +178,10 @@ public class PokerHub extends Hub {
 				}
 				System.out.println("Sending Deal back to Client");
 				sendToAll(HubGamePlay);
+
+				break;
+				
+			case Deal:
 
 				break;
 			}

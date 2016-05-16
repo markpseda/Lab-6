@@ -88,6 +88,8 @@ public class PokerTableController {
 	@FXML
 	private Button btnStartGame;
 	@FXML
+	private Button btnDraw;
+	@FXML
 	private ToggleButton btnPos1SitLeave;
 	@FXML
 	private ToggleButton btnPos2SitLeave;
@@ -310,6 +312,12 @@ public class PokerTableController {
 	@FXML
 	void btnDeal_Click(ActionEvent event) {
 		Action act = new Action(eAction.Deal, mainApp.getPlayer());
+		mainApp.messageSend(act);
+	}
+	
+	@FXML
+	void btnDraw_Click(ActionEvent event) {
+		Action act = new Action(eAction.Draw, mainApp.getPlayer());
 		mainApp.messageSend(act);
 	}
 

@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane fx:id="OuterBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1350.0" style="-fx-background-color: green;" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.PokerTableController">
+<BorderPane fx:id="OuterBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1350.0" style="-fx-background-color: green;" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poker.app.view.PokerTableController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="109.0" prefWidth="850.0" style="-fx-background-color: green;" BorderPane.alignment="CENTER">
          <children>
@@ -132,6 +139,7 @@
             <Button id="btnGetState" layoutX="191.0" layoutY="287.0" mnemonicParsing="false" onAction="#GetGameState" text="Get State" />
             <Label id="lblNumberOfPlayers" fx:id="lblNumberOfPlayers" layoutX="28.0" layoutY="27.0" prefHeight="21.0" prefWidth="127.0" />
             <TextArea fx:id="txtPlayerArea" layoutX="14.0" layoutY="48.0" prefHeight="89.0" prefWidth="421.0" />
+            <Button fx:id="btnDraw" layoutX="283.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnDraw_Click" text="Draw" />
          </children>
       </AnchorPane>
    </center>
