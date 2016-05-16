@@ -38,12 +38,18 @@ public class PokerHub extends Hub {
 
 	protected void playerConnected(int playerID) {
 
-		if (playerID == 5) {
+		if (playerID == 4) {
+			//stops allowing players to join after 4
 			shutdownServerSocket();
 		}
 	}
 
 	protected void playerDisconnected(int playerID) {
+		if (playerID == 4){
+			//If the 4th player quits then the server socket
+			//should be re started but i don't know the method for this
+			//startServerSocket();
+		}
 		shutDownHub();
 	}
 
@@ -74,7 +80,7 @@ public class PokerHub extends Hub {
 				// System.out.println("Starting Game!");
 				resetOutput();
 
-				// TODO - Lab #5 Do all the things you need to do to start a
+				//  - Lab #5 Do all the things you need to do to start a
 				// game!!
 
 				// Determine which game is selected (from RootTableController)
@@ -162,6 +168,7 @@ public class PokerHub extends Hub {
 				sendToAll(HubGamePlay);
 				break;
 			case Deal:
+				
 				HubGamePlay.setDrawCnt(eDrawCount.SECOND);
 				try {
 					DealCards(HubGamePlay.getRule().getCardDraw(HubGamePlay.getDrawCnt()));
