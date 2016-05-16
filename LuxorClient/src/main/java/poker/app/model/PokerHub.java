@@ -170,11 +170,13 @@ public class PokerHub extends Hub {
 			case Draw:
 				int newDrawCnt = HubGamePlay.getDrawCnt().getDrawNo() + 1;
 				//Need a way to use the int value of the next draw to set draw count
-				HubGamePlay.setDrawCnt(eDrawCount.SECOND);
+				HubGamePlay.setDrawCnt(eDrawCount.SECOND); //temporary
 				try {
 					DealCards(HubGamePlay.getRule().getCardDraw(HubGamePlay.getDrawCnt()));
 					//if this fails then then perform the scoring of the hands. 
 				} catch (DeckException e) {
+					//pass in all hands of players and return highest scoring hand.
+					
 					e.printStackTrace();
 					sendToAll(e);
 				}
@@ -198,7 +200,7 @@ public class PokerHub extends Hub {
 			if (cd.getCardDestination() == eCardDestination.Player) {
 				for (int n : HubGamePlay.getiActOrder()) {
 					// If Player at the position exists... and the their hand
-					// isnt' folded, deal a card
+					// isn't folded, deal a card
 					if ((HubGamePlay.getPlayerByPosition(n) != null)
 							&& (HubGamePlay.getPlayerHand(HubGamePlay.getPlayerByPosition(n).getPlayerID()))
 									.isFolded() == false) {
