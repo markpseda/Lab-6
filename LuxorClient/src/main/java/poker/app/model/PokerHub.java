@@ -168,7 +168,7 @@ public class PokerHub extends Hub {
 				sendToAll(HubGamePlay);
 				break;
 			case Draw:
-				
+				int newDrawCnt = HubGamePlay.getDrawCnt().getDrawNo() + 1;
 				HubGamePlay.setDrawCnt(eDrawCount.SECOND);
 				try {
 					DealCards(HubGamePlay.getRule().getCardDraw(HubGamePlay.getDrawCnt()));
